@@ -18,8 +18,7 @@
             "WEBSOCKET_ENABLED": "false"
           },
           "volumeMounts": {
-            "/data": "portainer-cfs",
-            "/var/run/docker.sock":"/var/run/docker.sock"
+            "/data": "portainer-cfs"
           }
         }
       }
