@@ -1,0 +1,36 @@
+{
+  "version": "2.0",
+  "envId": "{{env.ENV_ID}}",
+  "framework": {
+    "name": "portainer",
+    "plugins": {
+      "client": {
+        "use": "@cloudbase/framework-plugin-container",
+        "inputs": {
+          "serviceName": "portainer",
+          "servicePath": "/portainer",
+          "uploadType": "image",
+          "containerPort": 9000,
+          "imageInfo": {
+            "imageUrl": "portainer/portainer-ce:2.1.1-alpine"
+          },
+          "envVariables": {
+            "WEBSOCKET_ENABLED": "false"
+          },
+          "volumeMounts": {
+            "/data": "portainer-cfs",
+            "/var/run/docker.sock":"/var/run/docker.sock"
+          }
+        }
+      }
+    },
+    "requirement": {
+      "addons": [
+        {
+          "type": "CFS",
+          "name": "portainer-cfs"
+        }
+      ]
+    }
+  }
+}
